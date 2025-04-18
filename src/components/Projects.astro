@@ -1,0 +1,98 @@
+---
+import GithubIcon     from "./icons/GitHub.astro";
+import Css         from "./icons/Css.astro";
+import Html        from "./icons/Html.astro";
+import Javascript  from "./icons/Javascript.astro";
+import React       from "./icons/React.astro";
+import Tailwind    from "./icons/Tailwind.astro";
+import SocialPill from "./SocialPill.astro";
+
+
+
+const TAGS = {
+
+    TAILWIND: {
+        name: "Tailwind",
+        class: "bg-blue-200/10 text-blue-200",
+        icon: Tailwind
+    },
+
+    JAVASCRIPT: {
+        name: "Javascript",
+        class: "bg-yellow-200/10 text-yellow-200",
+        icon: Javascript
+    },
+
+    HTML: {
+        name: "Html",
+        class: "bg-red-200/10 text-red-200",
+        icon: Html
+    },
+    REACT: {
+        name: "React",
+        class: "bg-cyan-200/10 text-cyan-200",
+        icon: React
+    },
+    CSS: {
+        name: "Css",
+        class: "bg-purple-200/10 text-purple-200",
+        icon: Css
+    }
+
+}
+
+const PROJECTS =[
+    {
+        title: "Tic Tac Toe",
+        description: "Un clásico juego de Tres en Raya desarrollado con React. Cuenta con persistencia de partidas, animaciones atractivas al ganar y un diseño completamente responsive para una experiencia fluida en cualquier dispositivo.",
+        tags: [TAGS.REACT, TAGS.CSS],
+        image: "projects/tictactoe.webp",
+        link: "https://tic-tac-toe-swart-mu-97.vercel.app/",
+        link2: "https://github.com/alvaromt6/tic-tac-toe",
+    },
+   {
+        title: "Juego Piedra, papel o tijera",
+        description: "Juego interactivo de Piedra, Papel o Tijera desarrollado con JavaScript, HTML y Tailwind CSS. Diseñado para jugar directamente en el navegador, este proyecto destaca por su enfoque en la interactividad y el aprendizaje práctico de JavaScript.",
+        tags: [TAGS.HTML, TAGS.TAILWIND, TAGS.JAVASCRIPT],
+        image: "projects/piedrapapeltijera.webp",
+        link: "https://piedra-papel-tijeras-ten.vercel.app",
+        link2: "https://github.com/alvaromt6/Piedra-Papel-Tijeras",
+    },
+  
+]
+--- 
+{
+    PROJECTS.map(({ title, description, tags, image, link, link2 }) => (
+        <article>
+            <div class="flex items-center gap-2 mt-10 mb-2">
+            <h3 class="text-2xl font-semibold text-[#0a58e9]">{ title }</h3>
+            {/* Link repositorio */}
+            <nav class="flex flex-wrap gap-4 mt-2">
+                <SocialPill href={ link2 } target="_blank" rel="noopener noreferrer">
+                <GithubIcon class="size-4 md:size-6" />
+                GitHub
+                </SocialPill>
+            </nav>
+            </div>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-2 flex-row mb-3">
+            {tags.map(( tag ) => (
+                <li>
+                <span class={` flex gap-x-2 rounded-full text-xs ${ tag.class } py-1 px-2`}>
+                    <tag.icon class="size-4" />
+                    { tag.name }
+                </span>
+                </li>
+            ))}
+            </ul>
+
+            <a href={ link } target="_blank" rel="noopener noreferrer">
+            <img 
+                class="rounded shadow-white/10 transition-transform duration-300 hover:scale-105 mt-6" 
+                src={ image } 
+                alt={`Captura de pantalla del proyecto ${ title }`} 
+            />
+            </a>
+        </article>
+    ))
+}

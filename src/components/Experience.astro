@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+    {
+        date: '3 meses en prácticas - Sagatech',
+        title: 'Proyecto GEODEF',
+        description: 'Contribución al desarrollo de un sistema de gestión de datos geológicos, donde teníamos que deformar un plano dependiendo de la figura que el cliente pusiese en él, empleando tecnologías como Astro, React, ThreeJS y Tailwind CSS.',
+        //link: 'https://www.sagatech.es/',
+    },
+    {
+        date: '4 meses en prácticas - Neleda S.L.',
+        title: 'Prácticas de administración de sistemas',
+        description: 'Participación en el desarrollo y mantenimiento de plataformas web, incluyendo la implementación de aplicaciones para el registro de usuarios y sistemas de monitoreo de almacenamiento, utilizando tecnologías como WordPress, PHP, Laravel y MySQL.',
+        //link: 'https://neleda.com/',
+    },
+    
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">                  
+   { 
+    EXPERIENCE.map(experiencie => (
+    <li class="mb-10 ms-4">
+        <ExperienceItem {...experiencie}/>
+    </li>
+    ))
+    }
+
+</ol>

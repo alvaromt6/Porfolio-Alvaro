@@ -1,0 +1,71 @@
+<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2">
+    <nav class="flex px-3 text-sm font-medium rounded-full justify-center items-center bg-gray-500 w-[700%] max-w-screen-lg mx-auto py-1">
+        <a href="https://www.linkedin.com/in/alvaro-macías-tirado-b637b625b/" target="_blank" rel="noopener noreferrer">
+            <img 
+                class="rounded-full w-12 h-12 mr-4" 
+                src="fotocurriculum.webp" 
+                alt="Foto Alvaro"
+            /> 
+        </a>
+
+        <!-- Menú normal para desktop -->
+        <div class="hidden md:flex">
+            <a href="/" class="px-3 py-2">Inicio</a>
+            <a href="#experiencia" class="px-3 py-2">Experiencia</a>
+            <a href="#proyectos" class="px-3 py-2">Proyectos</a>
+            <a href="#tecnologias"class="px-3 py-2">Tecnologías</a>
+            <a href="#sobre-mi" class="px-3 py-2">Sobre mi</a>
+            <a href="mailto:alvaromacias614@gmail.com" class="px-3 py-2">Contacto</a>
+        </div>
+
+        <!-- Botón hamburguesa para móvil -->
+        <button id="menu-toggle" class="md:hidden focus:outline-none text-gray-100 bg-gray-700 p-2 rounded-md shadow-md">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-3"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 6h10" /><path d="M4 12h16" /><path d="M7 12h13" /><path d="M4 18h10" /></svg>
+        </button>
+    </nav>
+
+    <!-- Menú móvil (oculto por defecto) -->
+    <div id="mobile-menu" class="hidden absolute top-20 left-0 right-0 bg-black dark:bg-gray-800 rounded-lg shadow-lg py-2">
+        <a href="/" class="block px-4 py-2 hover:bg-black dark:hover:bg-gray-700">Inicio</a>
+        <a href="#experiencia" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Experiencia</a>
+        <a href="#proyectos" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Proyectos</a>
+        <a href="#proyectos" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Tecnologías</a>
+        <a href="#sobre-mi" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Sobre mi</a>
+        <a href="mailto:alvaromacias614@gmail.com" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Contacto</a>
+    </div>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.getElementById('menu-toggle');
+        
+        if (mobileMenu && menuToggle && window.innerWidth < 768) {
+            // Ocultar inicialmente en móvil
+            mobileMenu.classList.add('hidden');
+            
+            // Toggle del menú hamburguesa
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Cierre al seleccionar opción
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Cerrar al hacer clic fuera del menú
+            document.addEventListener('click', function(event) {
+                const target = event.target as Element;
+                if (!mobileMenu.classList.contains('hidden') &&
+                    target && target.matches && !target.matches('#mobile-menu, #mobile-menu *') &&
+                    target !== menuToggle) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        }
+    });
+</script>

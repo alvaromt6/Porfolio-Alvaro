@@ -1,0 +1,45 @@
+---
+const { textToCopy = "", class: additionalClasses = "" } = Astro.props;
+---
+
+<button
+  onclick="copyToClipboard(this)"
+  data-text={textToCopy}
+  class={`
+    bg-white/5 
+    rounded-full 
+    border border-white/10 
+    flex justify-center items-center gap-x-2 
+    py-1 px-2 md:py-2 md:px-4 
+    text-xs md:text-base
+    transition-all  
+    hover:scale-110 hover:bg-white/10
+    cursor-pointer
+    ${additionalClasses}
+  `}
+>
+  <slot>Copiar</slot>
+</button>
+
+<script is:inline>
+  function copyToClipboard(button) {
+    const text = button.getAttribute('data-text');
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        const originalText = button.innerText;
+        button.innerHTML = `
+          <svg class="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          ¡Copiado!
+        `;
+      })
+      .catch(err => {
+        console.error('Error al copiar: ', err);
+        button.textContent = "Error al copiar";
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 2000);
+      });
+  }
+</script>
