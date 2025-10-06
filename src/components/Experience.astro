@@ -1,30 +1,43 @@
 ---
-import ExperienceItem from "./ExperienceItem.astro";
-
 const EXPERIENCE = [
     {
-        date: '3 meses en prácticas - Sagatech',
-        title: 'Proyecto GEODEF',
-        description: 'Contribución al desarrollo de un sistema de gestión de datos geológicos, donde teníamos que deformar un plano dependiendo de la figura que el cliente pusiese en él, empleando tecnologías como Astro, React, ThreeJS y Tailwind CSS.',
-        //link: 'https://www.sagatech.es/',
+        date: 'Desarrollador Web en Prácticas – GrupoORO (3 meses)',
+        title: 'Prácticas Desarrollo Web',
+        description: 
+        `➡ Desarrollo y mantenimiento de aplicaciones y sistemas web.
+        <br />
+        ➡ Implementación de interfaces interactivas y dinámicas con Astro, React, Three.js y Tailwind.
+        <br />
+        ➡ Automatización de procesos y flujos mediante n8n e integración de herramientas de IA.
+        <br />
+        ➡ Gestión y personalización de sitios con WordPress.
+        <br />
+        ➡ Colaboración en proyectos orientados a la optimización de datos y mejora de la experiencia de usuario.`,
     },
     {
-        date: '4 meses en prácticas - Neleda S.L.',
-        title: 'Prácticas de administración de sistemas',
-        description: 'Participación en el desarrollo y mantenimiento de plataformas web, incluyendo la implementación de aplicaciones para el registro de usuarios y sistemas de monitoreo de almacenamiento, utilizando tecnologías como WordPress, PHP, Laravel y MySQL.',
-        //link: 'https://neleda.com/',
+        date: 'Desarrollador Web en Prácticas – Neleda S.L. (4 meses)',
+        title: 'Prácticas Administración de Sistemas',
+        description: 
+        `➡ Desarrollo de funcionalidades en sitios web utilizando HTML, CSS, JavaScript y PHP.
+        <br />
+        ➡ Colaboración en la gestión y optimización de bases de datos MySQL.
+        <br />
+        ➡ Implementación de soluciones de comercio electrónico con WooCommerce.
+        <br />
+        ➡ Mantenimiento y actualización de sistemas y aplicaciones web.`,
     },
-    
 ];
 ---
 
-<ol class="relative border-s border-gray-200 ml-3">                  
+<ol class="relative border-s border-gray-200 ml-3 ">                  
    { 
     EXPERIENCE.map(experiencie => (
     <li class="mb-10 ms-4">
-        <ExperienceItem {...experiencie}/>
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400">{experiencie.date}</time>
+        <h3 class="text-lg font-semibold text-blue-500 mb-2">{experiencie.title}</h3>
+        <p class="text-base font-normal text-gray-300 " set:html={experiencie.description}></p>
     </li>
     ))
     }
-
 </ol>
