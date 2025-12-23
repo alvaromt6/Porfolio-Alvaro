@@ -6,6 +6,11 @@ import Javascript  from "./icons/Javascript.astro";
 import React       from "./icons/React.astro";
 import Tailwind    from "./icons/Tailwind.astro";
 import SocialPill from "./SocialPill.astro";
+import SupaBase    from "./icons/SupaBase.astro";
+import Angular     from "./icons/Angular.astro";
+import SpringBoot  from "./icons/SpringBoot.astro";
+import Typescript  from "./icons/Typescript.astro";
+import Sql         from "./icons/Sql.astro";
 
 
 
@@ -37,50 +42,52 @@ const TAGS = {
         name: "Css",
         class: "bg-purple-200/10 text-purple-200",
         icon: Css
-    }
+    },
+    SQL: {
+        name: "SQL",
+        class: "bg-indigo-200/10 text-indigo-200",
+        icon: Sql
+    },
+    TYPESCRIPT: {
+        name: "TypeScript",
+        class: "bg-blue-600/10 text-blue-600",
+        icon: Typescript
+    },
+    SUPABASE: {
+        name: "SupaBase",
+        class: "bg-green-200/10 text-green-200",
+        icon: SupaBase
+    },
+    ANGULAR: {
+        name: "Angular",
+        class: "bg-red-600/10 text-red-600",
+        icon: Angular
+    },
+    SPRINGBOOT: {
+        name: "SpringBoot",
+        class: "bg-green-600/10 text-green-600",
+        icon: SpringBoot
+    },
+
 
 }
 
 const PROJECTS =[
-        {
-        title: "Red Social",
+    {
+        title: "API REST - ElPisito",
+        description: "API REST desarrollada con Spring Boot y Angular para gestionar una plataforma de alquiler de pisos. La API permite realizar operaciones CRUD sobre entidades como usuarios, pisos y reservas.",
+        tags: [ TAGS.ANGULAR, TAGS.SPRINGBOOT, TAGS.TYPESCRIPT, TAGS.SQL, TAGS.CSS ],
+        image: "projects/elpisito.png",
+        link: "https://github.com/alvaromt6/ElPisitoV9.git",
+        link2: "https://github.com/alvaromt6/ElPisitoV9.git"
+    },
+    {
+        title: "Red Social - Zuno",
         description: "Plataforma de red social desarrollada con React, Tailwind CSS, SupaBase que permite a los usuarios crear perfiles y compartir publicaciones en las que pueden interactuar dando like o comentando.",
-        tags: [ TAGS.REACT, TAGS.TAILWIND, ],
-        image: "projects/red-social.webp",
+        tags: [ TAGS.REACT, TAGS.TAILWIND, TAGS.SUPABASE,TAGS.SQL ],
+        image: "projects/red-social.png",
         link: "https://github.com/alvaromt6/red-social.git",
         link2: "https://github.com/alvaromt6/red-social.git"
-    },
-    {
-        title: "React-Ecommerce",
-        description: "Carrito de compras desarrollado con React y Css que permite agregar productos al carrito, eliminar productos. ",
-        tags: [ TAGS.REACT, TAGS.CSS, ],
-        image: "projects/react-ecommerce.webp",
-        link: "https://react-ecommerce-drab-five.vercel.app/",
-        link2: "https://github.com/alvaromt6/react-ecommerce.git"
-    },
-    {
-        title: "Pelix - Buscador de Películas",
-        description: "Aplicación web desarrollada con React y CSS que permite buscar películas y series utilizando la API de TMDB. Interfaz intuitiva para una experiencia de usuario fluida.",
-        tags: [ TAGS.REACT, TAGS.CSS, ],
-        image: "projects/pelix.webp",
-        link: "https://pelix-buscador-peliculas.vercel.app/",
-        link2: "https://github.com/alvaromt6/Pelix-buscador-peliculas.git"
-    },
-    {
-        title: "Tic Tac Toe",
-        description: "Un clásico juego de Tres en Raya desarrollado con React. Cuenta con persistencia de partidas, animaciones atractivas al ganar y un diseño completamente responsive para una experiencia fluida en cualquier dispositivo.",
-        tags: [TAGS.REACT, TAGS.CSS],
-        image: "projects/tictactoe.webp",
-        link: "https://tic-tac-toe-swart-mu-97.vercel.app/",
-        link2: "https://github.com/alvaromt6/tic-tac-toe",
-    },
-   {
-        title: "Juego Piedra, papel o tijera",
-        description: "Juego interactivo de Piedra, Papel o Tijera desarrollado con JavaScript, HTML y Tailwind CSS. Diseñado para jugar directamente en el navegador, este proyecto destaca por su enfoque en la interactividad y el aprendizaje práctico de JavaScript.",
-        tags: [TAGS.HTML, TAGS.TAILWIND, TAGS.JAVASCRIPT],
-        image: "projects/piedrapapeltijera.webp",
-        link: "https://piedra-papel-tijeras-ten.vercel.app",
-        link2: "https://github.com/alvaromt6/Piedra-Papel-Tijeras",
     },
   
 ]
